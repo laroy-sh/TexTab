@@ -1276,6 +1276,18 @@ struct PopoverView: View {
         // Handle AI actions
         Task {
             do {
+                var textForAI = textToProcess
+
+                // URL pre-processing: if the entire input is a URL, fetch the webpage content
+                let trimmedInput = textToProcess.trimmingCharacters(in: .whitespacesAndNewlines)
+                if trimmedInput.hasPrefix("http") || (!trimmedInput.contains(" ") && trimmedInput.contains(".")),
+                   let url = WebContentFetcher.shared.extractURL(from: trimmedInput) {
+                    if let content = try? await WebContentFetcher.shared.fetchContent(from: url),
+                       !content.isEmpty {
+                        textForAI = content
+                    }
+                }
+
                 let result: String
                 // Auto-detect if prompt requires web search
                 let requiresWebSearch = promptRequiresWebSearch(action.prompt)
@@ -1284,14 +1296,14 @@ struct PopoverView: View {
                     // Use Perplexity for web search
                     result = try await AIService.shared.webSearch(
                         prompt: action.prompt,
-                        query: textToProcess,
+                        query: textForAI,
                         apiKey: store.perplexityApiKey
                     )
                 } else {
                     // Use regular AI provider
                     result = try await AIService.shared.processText(
                         prompt: action.prompt,
-                        text: textToProcess,
+                        text: textForAI,
                         apiKey: store.apiKey,
                         provider: store.selectedProvider,
                         model: store.selectedModel

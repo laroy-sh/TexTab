@@ -166,6 +166,12 @@ let promptSuggestions: [PromptSuggestion] = [
         icon: "list.bullet.indent",
         category: .productivity
     ),
+    PromptSuggestion(
+        name: "Summarize Link",
+        prompt: "Summarize the following webpage content in 200 to 500 characters. Focus on the main topic and key points. Return only the summary:",
+        icon: "link",
+        category: .productivity
+    ),
 
     // Creative
     PromptSuggestion(

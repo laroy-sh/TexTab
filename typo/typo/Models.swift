@@ -472,5 +472,11 @@ class ActionsStore: ObservableObject {
             shortcut: "H",
             shortcutModifiers: ["\u{2318}"]
         ),
+        Action(
+            name: "Summarize Link",
+            icon: "link",
+            prompt: "Summarize the following webpage content in 200 to 500 characters. Focus on the main topic and key points. Return only the summary:",
+            shortcut: "L"
+        ),
     ]
 }
