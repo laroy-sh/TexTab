@@ -26,36 +26,48 @@ struct AIModel: Identifiable, Hashable, Codable {
 
     static let allModels: [AIModel] = [
         // OpenAI Models
+        AIModel(id: "gpt-5.2", name: "GPT-5.2", provider: .openai,
+               specs: ModelSpecs(speed: 3, intelligence: 5, tokenUsage: 2, description: "Latest GPT-5 with reasoning support")),
+        AIModel(id: "gpt-5.1", name: "GPT-5.1", provider: .openai,
+               specs: ModelSpecs(speed: 3, intelligence: 5, tokenUsage: 2, description: "Improved coding and steerable personality")),
+        AIModel(id: "gpt-5", name: "GPT-5", provider: .openai,
+               specs: ModelSpecs(speed: 3, intelligence: 5, tokenUsage: 2, description: "Most capable GPT model for complex tasks")),
+        AIModel(id: "gpt-5-mini", name: "GPT-5 Mini", provider: .openai,
+               specs: ModelSpecs(speed: 4, intelligence: 4, tokenUsage: 4, description: "Smaller, cost-efficient GPT-5 variant")),
+        AIModel(id: "gpt-4.1", name: "GPT-4.1", provider: .openai,
+               specs: ModelSpecs(speed: 4, intelligence: 5, tokenUsage: 3, description: "Best for instruction following and coding, 1M context")),
+        AIModel(id: "gpt-4.1-mini", name: "GPT-4.1 Mini", provider: .openai,
+               specs: ModelSpecs(speed: 5, intelligence: 4, tokenUsage: 4, description: "Fast and efficient, improved over 4o Mini")),
+        AIModel(id: "gpt-4.1-nano", name: "GPT-4.1 Nano", provider: .openai,
+               specs: ModelSpecs(speed: 5, intelligence: 3, tokenUsage: 5, description: "Smallest and fastest in the 4.1 family")),
         AIModel(id: "gpt-4o", name: "GPT-4o", provider: .openai,
-               specs: ModelSpecs(speed: 4, intelligence: 5, tokenUsage: 3, description: "Most capable GPT-4 model with vision")),
+               specs: ModelSpecs(speed: 4, intelligence: 5, tokenUsage: 3, description: "Capable GPT-4 model with vision")),
         AIModel(id: "gpt-4o-mini", name: "GPT-4o Mini", provider: .openai,
-               specs: ModelSpecs(speed: 5, intelligence: 4, tokenUsage: 5, description: "Fast, lightweight model optimized for speed and cost efficiency")),
-        AIModel(id: "gpt-4-turbo", name: "GPT-4 Turbo", provider: .openai,
-               specs: ModelSpecs(speed: 3, intelligence: 5, tokenUsage: 2, description: "High intelligence with large context window")),
-        AIModel(id: "gpt-4", name: "GPT-4", provider: .openai,
-               specs: ModelSpecs(speed: 2, intelligence: 5, tokenUsage: 2, description: "Original GPT-4, highly capable")),
-        AIModel(id: "gpt-3.5-turbo", name: "GPT-3.5 Turbo", provider: .openai,
-               specs: ModelSpecs(speed: 5, intelligence: 3, tokenUsage: 5, description: "Fast and affordable for simple tasks")),
-        AIModel(id: "o1-preview", name: "o1 Preview", provider: .openai,
-               specs: ModelSpecs(speed: 1, intelligence: 5, tokenUsage: 1, description: "Advanced reasoning model, slower but more thorough")),
-        AIModel(id: "o1-mini", name: "o1 Mini", provider: .openai,
-               specs: ModelSpecs(speed: 2, intelligence: 4, tokenUsage: 2, description: "Smaller reasoning model, balanced performance")),
+               specs: ModelSpecs(speed: 5, intelligence: 4, tokenUsage: 5, description: "Fast, lightweight model optimized for speed and cost")),
+        AIModel(id: "o4-mini", name: "o4 Mini", provider: .openai,
+               specs: ModelSpecs(speed: 3, intelligence: 5, tokenUsage: 3, description: "Best reasoning performance, outperforms o3-mini")),
+        AIModel(id: "o3", name: "o3", provider: .openai,
+               specs: ModelSpecs(speed: 2, intelligence: 5, tokenUsage: 2, description: "Most capable reasoning model")),
+        AIModel(id: "o3-mini", name: "o3 Mini", provider: .openai,
+               specs: ModelSpecs(speed: 3, intelligence: 4, tokenUsage: 3, description: "Optimized for science, math, and coding")),
 
         // Anthropic Models
+        AIModel(id: "claude-opus-4-6", name: "Claude Opus 4.6", provider: .anthropic,
+               specs: ModelSpecs(speed: 2, intelligence: 5, tokenUsage: 1, description: "Latest, most intelligent Claude model")),
         AIModel(id: "claude-opus-4-5-20251101", name: "Claude Opus 4.5", provider: .anthropic,
-               specs: ModelSpecs(speed: 2, intelligence: 5, tokenUsage: 1, description: "Most advanced Claude model with exceptional reasoning")),
+               specs: ModelSpecs(speed: 2, intelligence: 5, tokenUsage: 2, description: "Exceptional reasoning and coding")),
+        AIModel(id: "claude-sonnet-4-5-20250929", name: "Claude Sonnet 4.5", provider: .anthropic,
+               specs: ModelSpecs(speed: 4, intelligence: 5, tokenUsage: 3, description: "Best balance of speed and intelligence")),
+        AIModel(id: "claude-haiku-4-5-20251001", name: "Claude Haiku 4.5", provider: .anthropic,
+               specs: ModelSpecs(speed: 5, intelligence: 3, tokenUsage: 5, description: "Fast and cost-efficient")),
         AIModel(id: "claude-opus-4-20250514", name: "Claude Opus 4", provider: .anthropic,
-               specs: ModelSpecs(speed: 2, intelligence: 5, tokenUsage: 1, description: "Most powerful Claude model, exceptional reasoning")),
+               specs: ModelSpecs(speed: 2, intelligence: 5, tokenUsage: 1, description: "Powerful Claude model, exceptional reasoning")),
         AIModel(id: "claude-sonnet-4-20250514", name: "Claude Sonnet 4", provider: .anthropic,
-               specs: ModelSpecs(speed: 4, intelligence: 5, tokenUsage: 2, description: "Latest Claude model with excellent reasoning")),
+               specs: ModelSpecs(speed: 4, intelligence: 5, tokenUsage: 2, description: "Excellent reasoning, balanced performance")),
         AIModel(id: "claude-3-5-sonnet-20241022", name: "Claude 3.5 Sonnet", provider: .anthropic,
                specs: ModelSpecs(speed: 4, intelligence: 5, tokenUsage: 2, description: "Balanced performance and cost")),
         AIModel(id: "claude-3-5-haiku-20241022", name: "Claude 3.5 Haiku", provider: .anthropic,
-               specs: ModelSpecs(speed: 5, intelligence: 4, tokenUsage: 5, description: "Fast, lightweight model optimized for speed and cost efficiency")),
-        AIModel(id: "claude-3-opus-20240229", name: "Claude 3 Opus", provider: .anthropic,
-               specs: ModelSpecs(speed: 2, intelligence: 5, tokenUsage: 1, description: "Most powerful Claude 3 model")),
-        AIModel(id: "claude-3-haiku-20240307", name: "Claude 3 Haiku", provider: .anthropic,
-               specs: ModelSpecs(speed: 5, intelligence: 3, tokenUsage: 5, description: "Fastest Claude model for simple tasks")),
+               specs: ModelSpecs(speed: 5, intelligence: 4, tokenUsage: 5, description: "Fast, lightweight and cost-efficient")),
 
         // OpenRouter Models
         AIModel(id: "anthropic/claude-opus-4.5", name: "Claude Opus 4.5", provider: .openrouter,
@@ -75,38 +87,46 @@ struct AIModel: Identifiable, Hashable, Codable {
         AIModel(id: "mistralai/mistral-large", name: "Mistral Large", provider: .openrouter,
                specs: ModelSpecs(speed: 3, intelligence: 4, tokenUsage: 3, description: "Mistral's flagship model")),
 
+        // Llama 4 Models
+        AIModel(id: "meta-llama/llama-4-maverick", name: "Llama 4 Maverick", provider: .openrouter,
+               specs: ModelSpecs(speed: 4, intelligence: 5, tokenUsage: 4, description: "400B MoE, multilingual and multimodal")),
+        AIModel(id: "meta-llama/llama-4-scout", name: "Llama 4 Scout", provider: .openrouter,
+               specs: ModelSpecs(speed: 5, intelligence: 4, tokenUsage: 5, description: "109B MoE, 10M context window")),
+
         // DeepSeek Models
         AIModel(id: "deepseek/deepseek-chat", name: "DeepSeek Chat", provider: .openrouter,
                specs: ModelSpecs(speed: 4, intelligence: 4, tokenUsage: 5, description: "Fast and capable chat model")),
-        AIModel(id: "deepseek/deepseek-r1-distill-llama-70b", name: "DeepSeek R1 Distill 70B", provider: .openrouter,
-               specs: ModelSpecs(speed: 3, intelligence: 4, tokenUsage: 5, description: "Distilled reasoning model")),
+        AIModel(id: "deepseek/deepseek-r1", name: "DeepSeek R1", provider: .openrouter,
+               specs: ModelSpecs(speed: 3, intelligence: 5, tokenUsage: 3, description: "Open-source reasoning, 671B parameters")),
 
         // Free Models
+        AIModel(id: "deepseek/deepseek-r1:free", name: "DeepSeek R1 (Free)", provider: .openrouter,
+               specs: ModelSpecs(speed: 3, intelligence: 5, tokenUsage: 5, description: "Free open-source reasoning model")),
+        AIModel(id: "meta-llama/llama-4-maverick:free", name: "Llama 4 Maverick (Free)", provider: .openrouter,
+               specs: ModelSpecs(speed: 4, intelligence: 5, tokenUsage: 5, description: "Free Llama 4 Maverick")),
         AIModel(id: "google/gemma-3-27b-it:free", name: "Gemma 3 27B (Free)", provider: .openrouter,
                specs: ModelSpecs(speed: 4, intelligence: 4, tokenUsage: 5, description: "Free Google multimodal model")),
         AIModel(id: "meta-llama/llama-3.3-70b-instruct:free", name: "Llama 3.3 70B (Free)", provider: .openrouter,
                specs: ModelSpecs(speed: 4, intelligence: 4, tokenUsage: 5, description: "Free multilingual Llama model")),
-        AIModel(id: "deepseek/deepseek-r1-0528:free", name: "DeepSeek R1 (Free)", provider: .openrouter,
-               specs: ModelSpecs(speed: 3, intelligence: 5, tokenUsage: 5, description: "Free open-source reasoning model")),
         // Perplexity Models
-        AIModel(id: "llama-3.1-sonar-small-128k-online", name: "Sonar Small", provider: .perplexity,
-               specs: ModelSpecs(speed: 5, intelligence: 3, tokenUsage: 5, description: "Fast online search model")),
-        AIModel(id: "llama-3.1-sonar-large-128k-online", name: "Sonar Large", provider: .perplexity,
-               specs: ModelSpecs(speed: 4, intelligence: 4, tokenUsage: 3, description: "Balanced online search model")),
-        AIModel(id: "llama-3.1-sonar-huge-128k-online", name: "Sonar Huge", provider: .perplexity,
-               specs: ModelSpecs(speed: 3, intelligence: 5, tokenUsage: 2, description: "Most capable online search model")),
+        AIModel(id: "sonar", name: "Sonar", provider: .perplexity,
+               specs: ModelSpecs(speed: 5, intelligence: 3, tokenUsage: 5, description: "Fast general-purpose search model")),
+        AIModel(id: "sonar-pro", name: "Sonar Pro", provider: .perplexity,
+               specs: ModelSpecs(speed: 4, intelligence: 4, tokenUsage: 3, description: "Enhanced search with more citations")),
+        AIModel(id: "sonar-reasoning", name: "Sonar Reasoning", provider: .perplexity,
+               specs: ModelSpecs(speed: 3, intelligence: 5, tokenUsage: 2, description: "Real-time reasoning with search")),
 
         // Groq Models
+        AIModel(id: "meta-llama/llama-4-maverick-17b-128e-instruct", name: "Llama 4 Maverick", provider: .groq,
+               specs: ModelSpecs(speed: 4, intelligence: 5, tokenUsage: 4, description: "400B total, multilingual and multimodal")),
+        AIModel(id: "meta-llama/llama-4-scout-17b-16e-instruct", name: "Llama 4 Scout", provider: .groq,
+               specs: ModelSpecs(speed: 5, intelligence: 4, tokenUsage: 5, description: "17B active params, fast general-purpose")),
         AIModel(id: "llama-3.3-70b-versatile", name: "Llama 3.3 70B", provider: .groq,
-               specs: ModelSpecs(speed: 5, intelligence: 4, tokenUsage: 5, description: "Latest Llama on Groq, ultra-fast")),
-        AIModel(id: "llama-3.1-70b-versatile", name: "Llama 3.1 70B", provider: .groq,
-               specs: ModelSpecs(speed: 5, intelligence: 4, tokenUsage: 5, description: "Versatile model with fast inference")),
+               specs: ModelSpecs(speed: 5, intelligence: 4, tokenUsage: 5, description: "Latest Llama 3 on Groq, ultra-fast")),
         AIModel(id: "llama-3.1-8b-instant", name: "Llama 3.1 8B", provider: .groq,
                specs: ModelSpecs(speed: 5, intelligence: 3, tokenUsage: 5, description: "Instant responses, best for simple tasks")),
         AIModel(id: "mixtral-8x7b-32768", name: "Mixtral 8x7B", provider: .groq,
                specs: ModelSpecs(speed: 5, intelligence: 4, tokenUsage: 5, description: "Mixture of experts model, fast")),
-        AIModel(id: "gemma2-9b-it", name: "Gemma 2 9B", provider: .groq,
-               specs: ModelSpecs(speed: 5, intelligence: 3, tokenUsage: 5, description: "Google's efficient model on Groq")),
     ]
 
     static func models(for provider: AIProvider) -> [AIModel] {
@@ -145,15 +165,15 @@ enum AIProvider: String, CaseIterable, Codable {
     var defaultModelId: String {
         switch self {
         case .openai:
-            return "gpt-4o-mini"
+            return "gpt-4.1-mini"
         case .anthropic:
-            return "claude-3-5-sonnet-20241022"
+            return "claude-sonnet-4-5-20250929"
         case .openrouter:
-            return "anthropic/claude-3.5-sonnet"
+            return "anthropic/claude-sonnet-4"
         case .perplexity:
-            return "llama-3.1-sonar-small-128k-online"
+            return "sonar"
         case .groq:
-            return "llama-3.1-70b-versatile"
+            return "llama-3.3-70b-versatile"
         }
     }
 
